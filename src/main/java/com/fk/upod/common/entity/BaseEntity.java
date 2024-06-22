@@ -1,8 +1,8 @@
 package com.fk.upod.common.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.data.annotation.CreatedBy;
@@ -15,12 +15,15 @@ import java.time.LocalDateTime;
 
 @MappedSuperclass
 @EntityListeners({AuditingEntityListener.class})
+@Getter
+@Setter
 public abstract class BaseEntity implements Serializable {
 
     @Serial
     private static final long serialVersionUID = 3135563670595365973L;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     protected Long id;
 

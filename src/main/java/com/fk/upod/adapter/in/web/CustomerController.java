@@ -1,13 +1,10 @@
 package com.fk.upod.adapter.in.web;
 
 import com.fk.upod.application.domain.Customer;
-import com.fk.upod.application.domain.Room;
+import com.fk.upod.application.port.in.usecase.CreateCustomerUseCase;
 import com.fk.upod.application.port.in.usecase.RetrieveCustomerUseCase;
-import com.fk.upod.application.port.in.usecase.RetrieveRoomUseCase;
 import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -17,9 +14,15 @@ import java.util.List;
 public class CustomerController {
 
     private final RetrieveCustomerUseCase retrieveCustomerUseCase;
+    private final CreateCustomerUseCase createCustomerUseCase;
 
     @GetMapping
     public List<Customer> retrieve() {
         return retrieveCustomerUseCase.retrieve();
+    }
+
+    @PostMapping
+    public Customer create(@RequestBody Customer customer) {
+        return createCustomerUseCase.create(customer);
     }
 }
