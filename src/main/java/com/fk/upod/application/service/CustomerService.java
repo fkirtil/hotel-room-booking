@@ -23,6 +23,11 @@ public class CustomerService implements RetrieveCustomerUseCase, CreateCustomerU
     }
 
     @Override
+    public Customer retrieve(Long id) {
+        return customerReadOutPort.getCustomer(id);
+    }
+
+    @Override
     public Customer create(Customer customer) {
         return customerWriteOutPort.create(customer);
     }

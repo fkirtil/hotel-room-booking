@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface RetrieveReservationUseCase {
     List<Reservation> retrieve();
+    List<Reservation> retrieve(Long id);
 }

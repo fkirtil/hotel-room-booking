@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface ReservationReadOutPort {
     List<Reservation> getAllReservations();
+
+    List<Reservation> getReservation(Long id);
 }

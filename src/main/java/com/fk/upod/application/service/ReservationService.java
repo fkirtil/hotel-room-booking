@@ -24,6 +24,11 @@ public class ReservationService implements RetrieveReservationUseCase, CreateRes
     }
 
     @Override
+    public List<Reservation> retrieve(Long id) {
+        return reservationReadOutPort.getReservation(id);
+    }
+
+    @Override
     public Long create(Reservation reservation) {
         return reservationWriteOutPort.create(reservation);
     }

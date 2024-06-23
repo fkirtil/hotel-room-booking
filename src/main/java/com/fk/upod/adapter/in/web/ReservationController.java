@@ -25,6 +25,11 @@ public class ReservationController {
         return retrieveReservationUseCase.retrieve();
     }
 
+    @GetMapping("/{id}")
+    public List<Reservation> getReservationsByCustomerId(@PathVariable Long id) {
+        return retrieveReservationUseCase.retrieve(id);
+    }
+
     @PostMapping
     public Long create(@RequestBody Reservation reservation) {
         return createReservationUseCase.create(reservation);

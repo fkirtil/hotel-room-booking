@@ -12,6 +12,7 @@ public interface ReservationMapper {
     ReservationMapper INSTANCE = Mappers.getMapper(ReservationMapper.class);
 
     @Mapping(source = "room.id", target = "room.id")
+    @Mapping(source = "customer.id", target = "customer.id")
     Reservation entityToDomain(ReservationEntity reservationEntity);
 
     ReservationEntity domainToEntity(Reservation reservation);

@@ -14,5 +14,6 @@ public interface CustomerMapper {
     @Mapping(source = "id", target = "id")
     Customer entityToDomain(CustomerEntity customerEntity);
 
+    //@Mapping(source = "id", target = "id")
     CustomerEntity domainToEntity(Customer customer);
-;}
+}

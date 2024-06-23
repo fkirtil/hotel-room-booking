@@ -17,10 +17,15 @@ public class CustomerController {
     private final CreateCustomerUseCase createCustomerUseCase;
 
     @GetMapping
-    public List<Customer> retrieve() {
+    public List<Customer> getAll() {
         return retrieveCustomerUseCase.retrieve();
     }
 
+    @GetMapping("/{id}")
+    public Customer getCustomer(@PathVariable Long id) {
+        return retrieveCustomerUseCase.retrieve(id);
+    }
+    
     @PostMapping
     public Customer create(@RequestBody Customer customer) {
         return createCustomerUseCase.create(customer);

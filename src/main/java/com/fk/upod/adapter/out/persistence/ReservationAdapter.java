@@ -30,6 +30,14 @@ public class ReservationAdapter implements ReservationReadOutPort, ReservationWr
     }
 
     @Override
+    public List<Reservation> getReservation(Long id) {
+        List<ReservationEntity> reservationEntities = reservationRepository.findByCustomerId(id);
+        return reservationEntities.stream()
+                .map(reservationMapper::entityToDomain)
+                .collect(Collectors.toList());
+    }
+
+    @Override
     public Long create(Reservation reservation) {
         ReservationEntity reservationEntity = reservationMapper.domainToEntity(reservation);
         reservationRepository.save(reservationEntity);

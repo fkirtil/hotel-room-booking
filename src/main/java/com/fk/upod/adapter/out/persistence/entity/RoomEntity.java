@@ -18,13 +18,19 @@ import java.io.Serial;
 public class RoomEntity extends BaseEntity {
 
     @Serial
-    private static final long serialVersionUID = 9124547139045753570L;
+    private static final long serialVersionUID = 1417294479972099471L;
 
     @Column(name = "room_number")
     private String roomNumber;
 
     @Column(name = "capacity")
     private int capacity;
+
+    @Column(name = "text")
+    private String text;
+
+    @Column(name = "price")
+    private String price;
 
     @Column(name = "sea_view")
     private boolean seaView;

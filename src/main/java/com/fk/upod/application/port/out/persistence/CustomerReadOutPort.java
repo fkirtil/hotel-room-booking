@@ -7,4 +7,6 @@ import java.util.List;
 public interface CustomerReadOutPort {
 
     List<Customer> getAllCustomer();
+
+    Customer getCustomer(Long id);
 }
